@@ -1,9 +1,14 @@
 # ETL-Pipeline-Using-Airflow-Python-MySQL
+## Business Problem
+Retail analytics teams often receive customer and order data as separate file exports from transactional systems. Analysts spend hours every week manually cleaning files, joining tables in spreadsheets, and re-creating the same metrics such as daily revenue, order counts, and customer activity.
+
+This manual process is:
+- **Error prone** - joins break when columns change or files are missing  
+- **Slow** - every new report requires repetitive data preparation  
+- **Hard to scale** - as data grows, spreadsheets and ad-hoc scripts don’t keep up
 
 ## Overview 
-Modern data platforms handle massive and continuously growing volumes of transactional data that arrive in diverse formats. Ensuring that this raw data is reliably ingested, validated, and transformed into analytics-ready models is essential for accurate reporting and scalable insights.
-
-This project implements an end-to-end ETL pipeline using Apache Airflow, Python, and MySQL, designed to automate data ingestion, validation, transformation, and load. The pipeline standardizes multiple raw CSV inputs into a structured warehouse layer and produces a final analytics ready table for downstream dashboards and analysis. It demonstrates a scalable, maintainable, and fully automated data workflow that improves data reliability, reduces manual intervention, and supports business intelligence and machine-learning use cases.
+This project implements an end-to-end ETL pipeline using Apache Airflow, Python, and MySQL, designed to automate data ingestion, validation, transformation, and loading. The pipeline standardizes multiple raw CSV inputs into a structured warehouse layer and produces a final analytics ready table for downstream dashboards and analysis. It demonstrates a scalable, maintainable, and fully automated data workflow that improves data reliability, reduces manual intervention, and supports business intelligence and machine-learning use cases.
 
 ## Technology Stack 
 - **Orchestration:** ![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=flat&logo=apacheairflow&logoColor=white)
