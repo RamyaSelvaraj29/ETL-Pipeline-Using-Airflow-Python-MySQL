@@ -1,22 +1,46 @@
 # ETL-Pipeline-Using-Airflow-Python-MySQL
-## Business Problem
+## 📝 Overview 
+This project implements an end-to-end ETL pipeline using Apache Airflow, Python, and MySQL, designed to automate data ingestion, validation, transformation, and loading. The pipeline standardizes multiple raw CSV inputs into a structured warehouse layer and produces a final analytics ready table for downstream dashboards and analysis. It demonstrates a scalable, maintainable, and fully automated data workflow that improves data reliability, reduces manual intervention, and supports business intelligence and machine-learning use cases.
+
+## 📌 Business Problem
 Retail analytics teams often receive customer and order data as separate file exports from transactional systems. Analysts spend hours every week manually cleaning files, joining tables in spreadsheets, and re-creating the same metrics such as daily revenue, order counts, and customer activity.
 
 This manual process is:
-- **Error prone** - joins break when columns change or files are missing  
-- **Slow** - every new report requires repetitive data preparation  
-- **Hard to scale** - as data grows, spreadsheets and ad-hoc scripts don’t keep up
+- **Error prone** - Joins break when columns change or files are missing  
+- **Slow** - Every new report requires repetitive data preparation  
+- **Hard to scale** - As data grows, spreadsheets and ad-hoc scripts don’t keep up
 
-## Overview 
-This project implements an end-to-end ETL pipeline using Apache Airflow, Python, and MySQL, designed to automate data ingestion, validation, transformation, and loading. The pipeline standardizes multiple raw CSV inputs into a structured warehouse layer and produces a final analytics ready table for downstream dashboards and analysis. It demonstrates a scalable, maintainable, and fully automated data workflow that improves data reliability, reduces manual intervention, and supports business intelligence and machine-learning use cases.
+## 📈 Project Metrics
 
+| Metric | Value |
+|---|---|
+| Records Processed | 311,532 |
+| Source Tables | 3 |
+| Data Quality Issues Resolved | 4,908 |
+| Warehouse Tables Built | 7 (3 staging + 3 warehouse + 1 analytics) |
+| Pipeline Type | Fully Automated ETL |
+| Output | Analytics-Ready Data Mart |
+
+## ✅  Key Results
+- **Reduced data preparation time from hours to minutes -**
+  Automated ingestion and transformation of **311K+ records across 3 source tables** allowing analysts to focus on insights rather than manual data wrangling.
+
+- **Improved data reliability for business reporting -**
+  Automatically detected and resolved **4,900+ data quality issues** at ingestion preventing incomplete or inconsistent data from reaching downstream dashboards.
+
+- **Enabled self-serve analytics -**
+  **Consolidated customers, orders, and item-level revenue ($13.5M+) into a unified analytics mart** eliminating dependency for routine ad-hoc queries.
+
+- **Increased pipeline reliability and recoverability -**
+  Implemented **Idempotent UPSERT logic and automated validation checks**, allowing the pipeline to be safely re-runs after any failures without corrupting production data.
+  
 ## Technology Stack 
 - **Orchestration:** ![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=flat&logo=apacheairflow&logoColor=white)
 - **Database:** ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
 - **Containerization:** ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
 - **Data Processing/Transformation:** ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
 
-## Project workflow
+## 🔬 Project workflow
 - **Raw Data Ingestion -**
 The ETL pipeline begins with three raw CSV files customers, orders, and order items, placed in Airflow’s shared data directory `(/opt/airflow/data)`. This directory serves as a controlled landing area for all input datasets, ensuring every pipeline run starts from a single, consistent source. Centralizing the raw data guarantees reproducibility, avoids path inconsistencies, and provides a reliable entry point for all downstream processing.
 - **File Availability Validation -**
